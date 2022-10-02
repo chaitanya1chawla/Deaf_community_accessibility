@@ -1,0 +1,66 @@
+[project]
+name = "sign-transcription"
+description = "Models involved in transcribing sign language"
+version = "0.0.1"
+authors = [
+    { name = "Amit Moryossef", email = "amitmoryossef@gmail.com" }
+]
+readme = "README.md"
+dependencies = [
+    "pose_format",
+    "tqdm",
+    "numpy",
+    "torch",
+    "joeynmt",
+    "opencv-python",
+]
+
+[project.optional-dependencies]
+dev = [
+    "tensorflow",
+    "tensorflow_datasets",
+    "sign-language-datasets",
+    "wandb",
+    "pytorch_lightning",
+    "pytorch2keras",
+    "torchmetrics",
+    "mediapipe",
+    "transformers",
+    "diffusers",
+    "pytest",
+    "pylint"
+]
+
+[tool.yapf]
+based_on_style = "google"
+column_limit = 120
+
+[tool.setuptools]
+packages = [
+    "shared",
+    "video_to_pose",
+    "pose_to_video",
+    "pose_to_segments",
+    "pose_to_text",
+    "text_to_pose",
+    "text_to_text",
+]
+
+[tool.setuptools.package-data]
+pose_to_segments = ["*.pth"]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = [
+    "shared",
+    "video_to_pose",
+    "pose_to_video",
+    "pose_to_segments",
+    "pose_to_text",
+    "text_to_pose"
+]
+
+[project.scripts]
+video_to_pose = "video_to_pose.bin:main"
+pose_to_segments = "pose_to_segments.bin:main"
+pose_to_video = "pose_to_video.bin:main"
