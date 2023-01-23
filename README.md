@@ -1,4 +1,4 @@
-#Deaf Community Accessibility
+# Deaf Community Accessibility
 
 Repository for converting American Sign Language to speech/text 
 
